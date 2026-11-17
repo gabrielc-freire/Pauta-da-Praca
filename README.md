@@ -73,7 +73,7 @@ pauta-da-praca/
 
 1. Baixe ou clone o repositório:
    ```
-   git clone (https://github.com/gabrielc-freire/Pauta-da-Praca.git)
+   git clone https://github.com/gabrielc-freire/Pauta-da-Praca.git
    ```
 2. Abra o arquivo `index.html` no navegador.
 3. Vá em **Propostas** e teste o formulário.
@@ -87,4 +87,3 @@ pauta-da-praca/
 **Mensagens de erro sem detalhes internos:** o usuário vê "Não foi possível carregar os dados. Tente novamente." O erro técnico vai apenas para o `console`.
 
 **Coleta mínima de dados:** só bairro, assunto, título e explicação. O apelido é opcional. O formulário traz um aviso de privacidade, e o sistema recusa textos com números longos (como telefone ou CPF).
-
