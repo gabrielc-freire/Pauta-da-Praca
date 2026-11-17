@@ -482,3 +482,16 @@ textarea.invalido {
         scroll-behavior: auto !important;
     }
 }
+
+[hidden] {
+    display: none !important;
+}
+
+/* garante que "hidden" funcione em botões e caixas */
+.log-acao {
+    font-weight: 700;
+}
+
+.log-vazio {
+    color: #b9c4bd;
+}

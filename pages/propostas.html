@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Propostas | Pauta da Praça</title>
+    <meta name="description" content="Proponha ideias para o seu bairro e acompanhe o que acontece com elas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+
+<body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho">
+        <div class="container">
+            <a class="marca" href="../index.html">Pauta da Praça</a>
+            <nav class="menu" aria-label="Menu principal">
+                <a href="../index.html">Início</a>
+                <a href="propostas.html" aria-current="page">Propostas</a>
+                <a href="sobre.html">Sobre</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="secao" aria-labelledby="titulo-propostas">
+            <div class="container">
+                <h1 id="titulo-propostas">Propostas do bairro</h1>
+                <p>Preencha o formulário para enviar a sua ideia. Ela aparece na lista, e você pode corrigir ou apagar
+                    quando quiser.</p>
+
+                <div class="duas-colunas">
+                    <!-- Formulário -->
+                    <section aria-labelledby="titulo-form">
+                        <h2 id="titulo-form">Nova proposta</h2>
+                        <div id="mensagem-geral" class="mensagem" role="status" aria-live="polite" hidden></div>
+
+                        <form id="form-proposta" novalidate>
+                            <p class="aviso">Privacidade: use apenas dados fictícios e não escreva dados pessoais (nome
+                                completo, telefone, endereço). Pedimos só o necessário.</p>
+
+                            <div class="campo">
+                                <label for="apelido">Apelido (opcional)</label>
+                                <input type="text" id="apelido" name="apelido" maxlength="20" autocomplete="off">
+                                <p class="erro" id="erro-apelido" role="alert"></p>
+                            </div>
+
+                            <div class="campo">
+                                <label for="bairro">Bairro</label>
+                                <select id="bairro" name="bairro" required>
+                                    <option value="">Escolha o seu bairro</option>
+                                    <option>Centro</option>
+                                    <option>Jardim das Flores</option>
+                                    <option>Vila Nova</option>
+                                    <option>Parque Industrial</option>
+                                </select>
+                                <p class="erro" id="erro-bairro" role="alert"></p>
+                            </div>
+
+                            <div class="campo">
+                                <label for="categoria">Assunto</label>
+                                <select id="categoria" name="categoria" required>
+                                    <option value="">Escolha o assunto</option>
+                                    <option>Iluminação</option>
+                                    <option>Praças e áreas verdes</option>
+                                    <option>Calçadas e ruas</option>
+                                    <option>Transporte</option>
+                                    <option>Outro</option>
+                                </select>
+                                <p class="erro" id="erro-categoria" role="alert"></p>
+                            </div>
+
+                            <div class="campo">
+                                <label for="titulo">Título da ideia</label>
+                                <span class="dica">Resuma em uma frase curta (5 a 60 letras).</span>
+                                <input type="text" id="titulo" name="titulo" required minlength="5" maxlength="60">
+                                <p class="erro" id="erro-titulo" role="alert"></p>
+                            </div>
+
+                            <div class="campo">
+                                <label for="descricao">Explique a sua ideia</label>
+                                <span class="dica">Conte o problema e o que poderia ser feito (10 a 300 letras).</span>
+                                <textarea id="descricao" name="descricao" required minlength="10"
+                                    maxlength="300"></textarea>
+                                <p class="erro" id="erro-descricao" role="alert"></p>
+                            </div>
+
+                            <div class="acoes">
+                                <button type="submit" id="btn-enviar" class="botao">Enviar proposta</button>
+                                <button type="reset" class="botao botao--claro">Limpar</button>
+                                <button type="button" id="btn-cancelar" class="botao botao--claro" hidden>Cancelar
+                                    edição</button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <section aria-labelledby="titulo-lista">
+                        <h2 id="titulo-lista">Propostas enviadas</h2>
+                        <p id="msg-vazio" class="vazio" hidden>Ainda não há propostas. Que tal enviar a primeira?</p>
+
+                        <ul id="lista-propostas" class="grade lista-uma-coluna">
+                            <li class="card proposta">
+                                <div class="proposta-topo">
+                                    <h3>Mais luz na rua da escola</h3>
+                                    <span class="selo selo--analise">Em análise</span>
+                                </div>
+                                <p class="proposta-meta">Vila Nova · Iluminação · por Maria (exemplo)</p>
+                                <p>Dois postes estão apagados e as crianças voltam da escola no escuro.</p>
+                                <div class="acoes">
+                                    <button type="button" class="botao botao--claro botao--pequeno">Editar</button>
+                                    <button type="button" class="botao botao--perigo botao--pequeno">Remover</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Painel de Atividades -->
+        <section class="secao secao--suave" aria-labelledby="titulo-log">
+            <div class="container">
+                <div class="painel-log">
+                    <h2 id="titulo-log">Registro de atividades</h2>
+                    <ol id="log-atividades" class="log" aria-live="polite">
+                        <li><time datetime="2026-11-17T08:30">17/11/2026 08:30</time> - Proposta adicionada com sucesso
+                            (exemplo).</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>Pauta da Praça é um protótipo acadêmico (Projeto Tecnologia Cidadã, Desenvolvimento Web I).</p>
+            <p>Todos os dados são fictícios. Não informe dados pessoais reais.</p>
+        </div>
+    </footer>
+
+    <script src="../js/validacao.js"></script>
+    <script src="../js/atividades.js"></script>
+    <script src="../js/propostas.js"></script>
+</body>
+
+</html>
