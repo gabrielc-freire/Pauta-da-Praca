@@ -91,6 +91,6 @@ pauta-da-praca/
 
 ## 7. Telas do site
 
-![Home Mobile](homeMobile.png)
-![Home Tablet](homeTablet.png)
-![Home Desktop](homeDesktop.png)
+![Home Mobile](imgs/homeMobile.png)
+![Home Tablet](imgs/homeTablet.png)
+![Home Desktop](imgs/homeDesktop.png)
