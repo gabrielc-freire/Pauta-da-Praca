@@ -44,7 +44,7 @@ A Pauta da Praça é um site onde moradores propõem melhorias para o bairro, ve
 - HTML5
 - CSS3
 - JavaScript
-- Bootstrap
+- Bootstrap 5 (via CDN): navbar, grid, cards, formulário, botões e alertas
 - Git e GitHub
 
 ---
@@ -58,8 +58,8 @@ pauta-da-praca/
 │   ├── propostas.html    # formulário, lista de propostas e painel de atividades
 │   └── sobre.html        # sobre o projeto, privacidade e ODS
 ├── css/
-│   └── styles.css        # estilos (Mobile First)
-├── js/
+│   └── global.css        # estilos próprios, carregados depois do Bootstrap
+├── script/
 │   ├── validacao.js      # regras de validação dos dados
 │   ├── atividades.js     # painel de registro de atividades
 │   └── propostas.js      # adicionar, listar, editar e remover
@@ -75,8 +75,7 @@ pauta-da-praca/
    ```
    git clone https://github.com/gabrielc-freire/Pauta-da-Praca.git
    ```
-2. Abra o arquivo `index.html` no navegador.
-3. Vá em **Propostas** e teste o formulário.
+2. Abra o arquivo `index.html` no navegador (é preciso internet para carregar o Bootstrap e a fonte).
 
 ---
 
@@ -87,3 +86,11 @@ pauta-da-praca/
 **Mensagens de erro sem detalhes internos:** o usuário vê "Não foi possível carregar os dados. Tente novamente." O erro técnico vai apenas para o `console`.
 
 **Coleta mínima de dados:** só bairro, assunto, título e explicação. O apelido é opcional. O formulário traz um aviso de privacidade, e o sistema recusa textos com números longos (como telefone ou CPF).
+
+---
+
+## 7. Telas do site
+
+![Home Mobile](homeMobile.png)
+![Home Tablet](homeTablet.png)
+![Home Desktop](homeDesktop.png)
