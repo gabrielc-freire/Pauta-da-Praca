@@ -32,7 +32,7 @@
   /* Mostra uma mensagem geral acima do formulário. tipo: "ok" ou "erro". */
   function mostrarMensagem(texto, tipo) {
     const caixa = elementos.mensagemGeral;
-    caixa.className = "mensagem mensagem--" + tipo;
+    caixa.className = "alert fw-bold " + (tipo === "ok" ? "alert-success" : "alert-danger"); // alertas do Bootstrap
     caixa.textContent = texto;
     caixa.hidden = false;
     clearTimeout(temporizadorMensagem);
@@ -44,7 +44,7 @@
     const entrada = elementos.formulario.elements[campo];
     if (aviso) aviso.textContent = "";
     if (entrada) {
-      entrada.classList.remove("invalido");
+      entrada.classList.remove("is-invalid");
       entrada.removeAttribute("aria-invalid");
     }
   }
@@ -60,7 +60,7 @@
       const entrada = elementos.formulario.elements[campo];
       if (aviso) aviso.textContent = erros[campo];
       if (entrada) {
-        entrada.classList.add("invalido");
+        entrada.classList.add("is-invalid");
         entrada.setAttribute("aria-invalid", "true");
       }
     });
@@ -104,7 +104,7 @@
   }
 
   function criarBotaoDeAcao(texto, acao, proposta, classeExtra) {
-    const botao = criarElemento("button", "botao botao--pequeno " + classeExtra, texto);
+    const botao = criarElemento("button", "btn btn-sm " + classeExtra, texto);
     botao.type = "button";
     botao.dataset.acao = acao;
     botao.dataset.id = proposta.id;
@@ -112,14 +112,15 @@
     return botao;
   }
 
-  /* Monta o cartão de uma proposta. */
+  /* Monta o cartão de uma proposta (usa o componente card do Bootstrap). */
   function criarCartao(proposta) {
-    const cartao = criarElemento("li", "cartao proposta");
+    const cartao = criarElemento("li", "card proposta");
+    const corpo = criarElemento("div", "card-body d-flex flex-column gap-2");
 
     const topo = criarElemento("div", "proposta-topo");
     topo.append(
-      criarElemento("h3", "", proposta.titulo),
-      criarElemento("span", "selo selo--" + proposta.status, NOMES_STATUS[proposta.status])
+      criarElemento("h3", "card-title mb-0", proposta.titulo),
+      criarElemento("span", "badge rounded-pill selo selo--" + proposta.status, NOMES_STATUS[proposta.status])
     );
 
     const autor = proposta.apelido || "anônimo";
@@ -129,11 +130,12 @@
 
     const acoes = criarElemento("div", "acoes");
     acoes.append(
-      criarBotaoDeAcao("Editar", "editar", proposta, "botao--claro"),
-      criarBotaoDeAcao("Remover", "remover", proposta, "botao--perigo")
+      criarBotaoDeAcao("Editar", "editar", proposta, "btn-outline-primary"),
+      criarBotaoDeAcao("Remover", "remover", proposta, "btn-outline-danger")
     );
 
-    cartao.append(topo, meta, criarElemento("p", "", proposta.descricao), acoes);
+    corpo.append(topo, meta, criarElemento("p", "mb-0", proposta.descricao), acoes);
+    cartao.append(corpo);
     return cartao;
   }
 

@@ -12,21 +12,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
         rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/global.css">
 </head>
 
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
+    <!-- Bootstrap: navbar responsiva, menu hambúger celular -->
     <header class="cabecalho">
-        <div class="container">
-            <a class="marca" href="../index.html">Pauta da Praça</a>
-            <nav class="menu" aria-label="Menu principal">
-                <a href="../index.html">Início</a>
-                <a href="propostas.html">Propostas</a>
-                <a href="sobre.html" aria-current="page">Sobre</a>
-            </nav>
-        </div>
+        <nav class="navbar navbar-expand-md" aria-label="Menu principal">
+            <div class="container">
+                <a class="navbar-brand marca" href="../index.html">Pauta da Praça</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal"
+                    aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir ou fechar o menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu-principal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Início</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="propostas.html">Propostas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="sobre.html">Sobre</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main id="conteudo">
@@ -51,20 +70,34 @@
         <section class="secao" aria-labelledby="titulo-ods">
             <div class="container">
                 <h2 id="titulo-ods">Objetivos de Desenvolvimento Sustentável</h2>
-                <ul class="grade grade--3">
-                    <li class="card">
-                        <h3>ODS 9</h3>
-                        <p>Inovação: tecnologia simples, aberta a todos.</p>
+                <ul class="row g-3 list-unstyled mb-0">
+                    <li class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">ODS 9</h3>
+                                <p class="card-text">Inovação: tecnologia simples, aberta a todos.</p>
+                            </div>
+                        </div>
                     </li>
 
-                    <li class="card">
-                        <h3>ODS 10</h3>
-                        <p>Menos desigualdades: voz também para quem tem pouco acesso aos canais formais.</p>
+                    <li class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">ODS 10</h3>
+                                <p class="card-text">Menos desigualdades: voz também para quem tem pouco acesso aos
+                                    canais formais.</p>
+                            </div>
+                        </div>
                     </li>
 
-                    <li class="card">
-                        <h3>ODS 11</h3>
-                        <p>Cidades sustentáveis: bairros construídos com a participação de quem mora neles.</p>
+                    <li class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">ODS 11</h3>
+                                <p class="card-text">Cidades sustentáveis: bairros construídos com a participação de
+                                    quem mora neles.</p>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -73,10 +106,11 @@
 
     <footer class="rodape">
         <div class="container">
-            <p>Pauta da Praça é um protótipo acadêmico (Projeto Tecnologia Cidadã, Desenvolvimento Web I).</p>
-            <p>Todos os dados são fictícios. Não informe dados pessoais reais.</p>
+            <p>&copy; 2026 Gabriel Cardoso Freire. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

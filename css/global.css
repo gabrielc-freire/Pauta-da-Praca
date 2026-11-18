@@ -1,3 +1,9 @@
+/* ==========================================================
+   Pauta da Praça - estilos próprios
+   Carregado DEPOIS do Bootstrap: aqui ajustamos o Bootstrap
+   para a paleta do projeto e mantemos os componentes próprios.
+   ========================================================== */
+
 :root {
     --tinta: #1f2a37;
     --verde: #1b6b4f;
@@ -11,50 +17,33 @@
     --perigo: #b3261e;
     --raio: 14px;
     --sombra: 0 2px 8px rgba(31, 42, 55, 0.08);
+
+    /* Ajusta as variáveis do Bootstrap para a paleta do projeto */
+    --bs-body-font-family: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --bs-body-color: var(--tinta);
+    --bs-body-bg: var(--fundo);
+    --bs-body-line-height: 1.6;
+    --bs-link-color-rgb: 18, 74, 55;
+    --bs-link-hover-color-rgb: 27, 107, 79;
 }
 
-* {
-    box-sizing: border-box;
-}
-
+/* ---------- Base ---------- */
 html {
     font-size: 112.5%;
 }
 
-body {
-    margin: 0;
-    font-family: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    color: var(--tinta);
-    background: var(--fundo);
-}
-
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     line-height: 1.2;
     margin: 0 0 0.6em;
 }
 
-h1 {
-    font-size: 2rem;
-}
-
-h2 {
-    font-size: 1.5rem;
-}
-
-h3 {
-    font-size: 1.15rem;
-}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; }
 
 p {
     margin: 0 0 1em;
     max-width: 65ch;
-}
-
-a {
-    color: var(--verde-escuro);
 }
 
 /* Foco visível para quem navega pelo teclado */
@@ -67,19 +56,11 @@ textarea:focus-visible {
     outline-offset: 2px;
 }
 
-.container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
+.secao { padding: 2rem 0; }
+.secao--suave { background: var(--verde-claro); }
 
-.secao {
-    padding: 2rem 0;
-}
-
-.secao--suave {
-    background: var(--verde-claro);
+@media (min-width: 1200px) {
+    .container { max-width: 1100px; }
 }
 
 /* Link "pular para o conteúdo" */
@@ -94,199 +75,172 @@ textarea:focus-visible {
 
 .pular:focus {
     left: 0;
-    z-index: 10;
+    z-index: 1100;
 }
 
-/* Cabeçalho e menu */
+/* ---------- Navbar (Bootstrap) ---------- */
 .cabecalho {
     background: var(--branco);
     border-bottom: 3px solid var(--sol);
 }
 
-.cabecalho .container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-}
-
-.marca {
+.navbar-brand.marca {
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--verde-escuro);
-    text-decoration: none;
 }
 
-.menu {
-    display: flex;
-    flex-wrap: wrap;
+.navbar-toggler {
+    border: 2px solid var(--verde);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(245, 184, 46, 0.6);
+}
+
+.navbar-nav {
     gap: 0.5rem;
+    padding: 0.5rem 0;
 }
 
-.menu a {
+.navbar .navbar-nav .nav-link {
     padding: 0.6rem 1rem;
     border-radius: var(--raio);
-    text-decoration: none;
     font-weight: 700;
     color: var(--tinta);
     background: var(--verde-claro);
     min-height: 44px;
 }
 
-.menu a:hover {
+.navbar .navbar-nav .nav-link:hover {
     background: var(--sol);
+    color: var(--tinta);
 }
 
-.menu a[aria-current="page"] {
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link[aria-current="page"] {
     background: var(--verde);
     color: var(--branco);
 }
 
-/* Botões */
-.botao {
-    display: inline-block;
+/* ---------- Botões (Bootstrap com a nossa paleta) ---------- */
+.btn {
+    --bs-btn-font-weight: 700;
+    --bs-btn-border-radius: var(--raio);
+    --bs-btn-padding-y: 0.7rem;
+    --bs-btn-padding-x: 1.4rem;
+    --bs-btn-focus-shadow-rgb: 245, 184, 46;
     min-height: 48px;
-    padding: 0.7rem 1.4rem;
-    font: inherit;
-    font-weight: 700;
-    text-decoration: none;
-    text-align: center;
-    border: 2px solid var(--verde);
-    border-radius: var(--raio);
-    background: var(--verde);
-    color: var(--branco);
-    cursor: pointer;
 }
 
-.botao:hover {
-    background: var(--verde-escuro);
-}
-
-.botao--claro {
-    background: var(--branco);
-    color: var(--verde-escuro);
-}
-
-.botao--claro:hover {
-    background: var(--verde-claro);
-}
-
-.botao--perigo {
-    background: var(--branco);
-    color: var(--perigo);
-    border-color: var(--perigo);
-}
-
-.botao--perigo:hover {
-    background: #fdeceb;
-}
-
-.botao--pequeno {
+.btn-sm {
+    --bs-btn-padding-y: 0.4rem;
+    --bs-btn-padding-x: 1rem;
     min-height: 40px;
-    padding: 0.4rem 1rem;
 }
 
-/* Banner principal (hero) */
+.btn-primary {
+    --bs-btn-bg: var(--verde);
+    --bs-btn-border-color: var(--verde);
+    --bs-btn-hover-bg: var(--verde-escuro);
+    --bs-btn-hover-border-color: var(--verde-escuro);
+    --bs-btn-active-bg: var(--verde-escuro);
+    --bs-btn-active-border-color: var(--verde-escuro);
+    --bs-btn-disabled-bg: var(--verde);
+    --bs-btn-disabled-border-color: var(--verde);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--verde-escuro);
+    --bs-btn-border-color: var(--verde);
+    --bs-btn-hover-color: var(--verde-escuro);
+    --bs-btn-hover-bg: var(--verde-claro);
+    --bs-btn-hover-border-color: var(--verde);
+    --bs-btn-active-color: var(--verde-escuro);
+    --bs-btn-active-bg: var(--verde-claro);
+    --bs-btn-active-border-color: var(--verde);
+}
+
+.btn-outline-danger {
+    --bs-btn-color: var(--perigo);
+    --bs-btn-border-color: var(--perigo);
+    --bs-btn-hover-color: var(--perigo);
+    --bs-btn-hover-bg: #fdeceb;
+    --bs-btn-hover-border-color: var(--perigo);
+    --bs-btn-active-color: var(--perigo);
+    --bs-btn-active-bg: #fdeceb;
+    --bs-btn-active-border-color: var(--perigo);
+}
+
+/* Botão amarelo de destaque (usado no banner) */
+.btn-sol {
+    --bs-btn-color: var(--tinta);
+    --bs-btn-bg: var(--sol);
+    --bs-btn-border-color: var(--sol);
+    --bs-btn-hover-color: var(--tinta);
+    --bs-btn-hover-bg: #ffd366;
+    --bs-btn-hover-border-color: #ffd366;
+    --bs-btn-active-color: var(--tinta);
+    --bs-btn-active-bg: #ffd366;
+    --bs-btn-active-border-color: #ffd366;
+}
+
+/* ---------- Banner principal (hero) ---------- */
 .hero {
     background: var(--verde);
     color: var(--branco);
     padding: 2.5rem 0;
 }
 
-.hero h1 {
-    font-size: 2.2rem;
-}
+.hero h1 { font-size: 2.2rem; }
+.hero p { font-size: 1.15rem; }
 
-.hero p {
-    font-size: 1.15rem;
-}
-
-.hero .botao {
-    background: var(--sol);
-    border-color: var(--sol);
-    color: var(--tinta);
-}
-
-.hero .botao:hover {
-    background: #ffd366;
-}
-
-/* Grades de cards */
-.grade {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
+/* ---------- Cards (Bootstrap) ---------- */
 .card {
-    background: var(--branco);
-    border: 1px solid var(--borda);
-    border-radius: var(--raio);
-    padding: 1.2rem;
+    --bs-card-bg: var(--branco);
+    --bs-card-border-color: var(--borda);
+    --bs-card-border-radius: var(--raio);
+    --bs-card-inner-border-radius: var(--raio);
+    --bs-card-spacer-x: 1.2rem;
+    --bs-card-spacer-y: 1.2rem;
     box-shadow: var(--sombra);
 }
 
-.card h3 {
-    margin-bottom: 0.4em;
-}
-
-.card p:last-child {
-    margin-bottom: 0;
-}
-
-/* Formulário */
-.campo {
-    margin-bottom: 1.2rem;
-}
-
-.campo label {
-    display: block;
+/* ---------- Formulário (Bootstrap) ---------- */
+.form-label {
     font-weight: 700;
     margin-bottom: 0.3rem;
 }
 
-.dica {
-    display: block;
+.form-text {
     font-size: 0.9rem;
     color: var(--cinza);
-    margin-bottom: 0.3rem;
 }
 
-input,
-select,
-textarea {
-    width: 100%;
+.form-control,
+.form-select {
     min-height: 48px;
-    padding: 0.6rem 0.8rem;
-    font: inherit;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
     color: var(--tinta);
-    background: var(--branco);
     border: 2px solid var(--borda);
     border-radius: 10px;
 }
 
-textarea {
+.form-control { padding-left: 0.8rem; padding-right: 0.8rem; }
+
+textarea.form-control {
     min-height: 130px;
     resize: vertical;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+.form-control:focus,
+.form-select:focus {
     border-color: var(--verde);
+    box-shadow: 0 0 0 0.25rem rgba(245, 184, 46, 0.45);
 }
 
-input.invalido,
-select.invalido,
-textarea.invalido {
-    border-color: var(--perigo);
-}
-
-/* Mensagem de erro de cada campo */
+/* Mensagem de erro de cada campo (preenchida pelo JavaScript) */
 .erro {
     color: var(--perigo);
     font-weight: 700;
@@ -294,13 +248,8 @@ textarea.invalido {
     min-height: 1.2em;
 }
 
-.aviso {
-    background: #fff8e1;
-    border-left: 6px solid var(--sol);
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
+.alert {
+    border-radius: var(--raio);
 }
 
 .acoes {
@@ -309,35 +258,7 @@ textarea.invalido {
     gap: 0.6rem;
 }
 
-/* Mensagem geral acima do formulário */
-.mensagem {
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.mensagem--ok {
-    background: var(--verde-claro);
-    color: var(--verde-escuro);
-}
-
-.mensagem--erro {
-    background: #fdeceb;
-    color: var(--perigo);
-}
-
-/* Lista de propostas */
-.lista-uma-coluna {
-    grid-template-columns: 1fr;
-}
-
-.proposta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
+/* ---------- Lista de propostas ---------- */
 .proposta-topo {
     display: flex;
     flex-wrap: wrap;
@@ -352,28 +273,16 @@ textarea.invalido {
     margin: 0;
 }
 
-/* Selos de status (texto + cor) */
+/* Selos de status (texto + cor, nunca só cor) */
 .selo {
-    padding: 0.2rem 0.7rem;
-    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
     font-size: 0.85rem;
     font-weight: 700;
 }
 
-.selo--recebida {
-    background: #fff3cd;
-    color: #6b4e00;
-}
-
-.selo--analise {
-    background: #dbeafe;
-    color: #1e3a8a;
-}
-
-.selo--atendida {
-    background: #d1fae5;
-    color: #065f46;
-}
+.selo--recebida { background: #fff3cd; color: #6b4e00; }
+.selo--analise  { background: #dbeafe; color: #1e3a8a; }
+.selo--atendida { background: #d1fae5; color: #065f46; }
 
 .vazio {
     text-align: center;
@@ -382,7 +291,7 @@ textarea.invalido {
     border-radius: var(--raio);
 }
 
-/* Painel de atividades */
+/* ---------- Painel de atividades ---------- */
 .painel-log {
     background: var(--tinta);
     color: #eef3f0;
@@ -390,9 +299,7 @@ textarea.invalido {
     padding: 1rem;
 }
 
-.painel-log h2 {
-    color: var(--branco);
-}
+.painel-log h2 { color: var(--branco); }
 
 .log {
     list-style: none;
@@ -413,7 +320,10 @@ textarea.invalido {
     font-weight: 700;
 }
 
-/* Rodapé */
+.log-acao { font-weight: 700; }
+.log-vazio { color: #b9c4bd; }
+
+/* ---------- Rodapé ---------- */
 .rodape {
     background: var(--tinta);
     color: #dfe7e2;
@@ -422,57 +332,18 @@ textarea.invalido {
     font-size: 0.95rem;
 }
 
-.rodape a {
-    color: var(--sol);
-}
+.rodape a { color: var(--sol); }
+.rodape p { margin: 0 0 0.4rem; }
 
-.rodape p {
-    margin: 0 0 0.4rem;
-}
-
-/* Responsividade
- Tablet (a partir de 768px) */
+/* ==========================================================
+   Responsividade (Mobile First)
+   Tablet: a partir de 768px | Desktop: a partir de 992px (grid do Bootstrap)
+   ========================================================== */
 @media (min-width: 768px) {
-    h1 {
-        font-size: 2.6rem;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .cabecalho .container {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .grade {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .lista-uma-coluna {
-        grid-template-columns: 1fr;
-    }
-
-    .secao {
-        padding: 3rem 0;
-    }
-}
-
-/* Desktop (a partir de 1100px) */
-@media (min-width: 1100px) {
-    .grade--3 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Página de propostas: formulário ao lado da lista */
-    .duas-colunas {
-        display: grid;
-        grid-template-columns: 5fr 7fr;
-        gap: 2rem;
-        align-items: start;
-    }
+    h1 { font-size: 2.6rem; }
+    .hero h1 { font-size: 3rem; }
+    .secao { padding: 3rem 0; }
+    .navbar-nav { padding: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -481,17 +352,4 @@ textarea.invalido {
         animation: none !important;
         scroll-behavior: auto !important;
     }
-}
-
-[hidden] {
-    display: none !important;
-}
-
-/* garante que "hidden" funcione em botões e caixas */
-.log-acao {
-    font-weight: 700;
-}
-
-.log-vazio {
-    color: #b9c4bd;
 }
